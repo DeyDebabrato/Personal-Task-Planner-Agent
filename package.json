@@ -13,10 +13,12 @@
   "license": "ISC",
   "description": "A single-agent system that breaks down goals into tasks, schedules them via APIs, includes ethical bias checks, and sends reminders.",
   "dependencies": {
+    "@langchain/openai": "^0.6.9",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "googleapis": "^155.0.1",
     "langchain": "^0.3.31",
+    "node-cron": "^4.2.1",
     "nodemailer": "^7.0.5",
     "openai": "^5.15.0"
   },

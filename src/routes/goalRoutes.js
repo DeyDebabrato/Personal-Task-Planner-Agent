@@ -1,6 +1,6 @@
 import express from 'express';
-import multiLevelPrompting from '../utils/multiPrompt';
-import biasCheck from '../utils/biasCheck';
+import multiLevelPrompting from '../utils/multiPrompt.js';
+import biasCheck from '../utils.biasCheck.js';
 
 const router = express.Router();
 

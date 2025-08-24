@@ -1,25 +1,32 @@
-const express = require('express');
-const biasCheck = require('../utils/biasCheck');
-const sendEmail = require('../utils/email');
-const { OpenAI } = require('langchain/llms/openai');
-const { OPENAI_API_KEY } = require('../config/env');
+import express from 'express';
+import biasCheck from '../utils/biasCheck.js';
+import sendEmail from '../utils/email.js';
+import { OpenAI } from 'langchain/llms/openai';
+import { OPENAI_API_KEY } from '../config/env.js';
 
 const router = express.Router();
 const llm = new OpenAI({ apiKey: OPENAI_API_KEY });
 
-router.post('/plan', async (req,res)=>{
+router.post('/plan', async (req, res) => {
   try {
     const { goal, email } = req.body;
-    if (!goal) return res.status(400).json({error:"Goal is required"});
-    if (!biasCheck(goal)) return res.status(400).json({error:"Goal contains inappropriate content"});
+    if (!goal) {
+      return res.status(400).json({ error: "Goal is required" });
+    }
+    if (!biasCheck(goal)) {
+      return res.status(400).json({ error: "Inappropriate goal" });
+    }
 
     const plan = await llm.call(`Break down the goal: ${goal}`);
-    if(email) await sendEmail(email,"Your Task Plan",plan);
-
-    res.json({ plan });
-  } catch(err) {
+    if (email) {
+      await sendEmail(email, "Your Task Plan", plan);
+    }
+    
+    res.json(plan);
+  } catch (err) {
     console.error(err);
-    res.status(500).json({error:"Something went wrong"});
+    res.status(500).json({ error: "Failed to create plan" });
   }
 });
-module.exports = router;
+
+export default router;
