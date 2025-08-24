@@ -1,13 +1,49 @@
-# Personal Task Planner Agent
+# Personal Task Planner Agent (ES7+ Modular ESM)
 
-A single-agent system that breaks down goals into tasks, schedules them via APIs, includes ethical bias checks, and sends reminders.
 
-## Setup
+This project is a **Personal Task Planner Agent** built with **Node.js (ES7+ syntax)** using **ESM imports/exports** and a **modular structure**.
 
-1. Clone the repo
-2. Run `npm install`
-3. Add API keys to `.env`
-4. Start with `npm run dev`
 
-## Deployment
-Deploy easily to Vercel or any Node.js hosting.
+---
+
+
+## Features
+- Modern **ES7+ features** (async/await, spread/rest, classes)
+- Organized **routes, services, and utils**
+- Express.js API with `/tasks` endpoint
+- Environment variables via **dotenv**
+- Auto-reload dev mode with **nodemon**
+- Easy stop command with **kill-port**
+
+
+---
+
+
+## Installation
+
+
+```bash
+git clone https://github.com/DeyDebabrato/Personal-Task-Planner-Agent.git
+cd Personal-Task-Planner-Agent
+npm install
+```
+
+
+---
+
+
+## Usage
+
+
+Start in dev mode:
+```bash
+npm run dev
+```
+
+
+Stop server (kills port 3000):
+```bash
+npm run stop
+```
+
+
