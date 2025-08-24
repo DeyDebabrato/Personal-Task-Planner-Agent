@@ -1,4 +1,6 @@
-[main de26779] Converting project to ES7, add goalRoutes.js and update index.jscat
- 12 files changed, 198 insertions(+), 68 deletions(-)
- create mode 100644 index.js
- create mode 100644 src/routes/goalRoutes.js
+// Removed accidental git/commit output that was pasted into this file.
+// Replace this placeholder with your actual application entrypoint code.
+
+const app = {}; // TODO: implement and export your Express/Koa/Node app here
+
+module.exports = app;
